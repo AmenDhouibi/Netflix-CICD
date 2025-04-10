@@ -1,1 +1,1 @@
-# Netflix-CICD
+# Netflix Clone DevSecOps
