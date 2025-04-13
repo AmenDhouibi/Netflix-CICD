@@ -48,3 +48,26 @@ pipeline {
                 sh "trivy fs . > trivyfs.txt"
             }
         }
+       stage('Docker Build & Push') {
+            steps {
+                script {
+                    // "docker" must match your Docker tool name and "docker" credentials ID
+                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker') {
+                        sh "docker build --build-arg TMDB_V3_API_KEY=d1ceb7c2512ecee0f4f227d3cb831d2f -t netflix ."
+                        sh "docker tag netflix amendhouibi22/netflix:latest"
+                        sh "docker push amendhouibi22/netflix:latest"
+                    }
+                }
+            }
+        }
+        stage('TRIVY') {
+            steps {
+                // Scans the pushed Docker image and writes results to trivyimage.txt
+                sh "trivy image amendhouibi22/netflix:latest > trivyimage.txt"
+            }
+        }
+        stage('Deploy to container'){
+            steps{
+                sh 'docker run -d --name netflix -p 8081:80 amendhouibi22/netflix:latest'
+            }
+        }
