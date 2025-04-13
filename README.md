@@ -36,26 +36,29 @@ This project demonstrates a complete **CI/CD pipeline setup** for deploying a Ne
 4. **Quality Gate**  
    Validates the code via SonarQube Quality Gate.
 
-5. **Install Dependencies**  
+   ![sonar](https://github.com/AmenDhouibi/Netflix-CICD/blob/main/Sonarqube.png)
+
+6. **Install Dependencies**  
    Runs `npm install` for app dependencies.
 
-6. **Trivy FileSystem Scan**  
+7. **Trivy FileSystem Scan**  
    Scans the project files for vulnerabilities.
 
-7. **Docker Build & Push**  
+8. **Docker Build & Push**  
    Builds the Docker image and pushes it to DockerHub.
 
-8. **Trivy Image Scan**  
+9. **Trivy Image Scan**  
    Scans the pushed Docker image for security issues.
 
-9. **Deploy to Local Container (test)**  
+10. **Deploy to Local Container (test)**  
    Runs the app locally to verify before production.
 
-10. **Deploy to AKS (Production)**  
+11. **Deploy to AKS (Production)**  
     Deploys to Kubernetes using `kubectl`.
 
-11. **Email Notifications**  
+12. **Email Notifications**  
     Sends an email report (with logs & scan results).
+    ![email](https://github.com/AmenDhouibi/Netflix-CICD/blob/main/Email.png)
 
 ---
 
@@ -77,6 +80,8 @@ This project demonstrates a complete **CI/CD pipeline setup** for deploying a Ne
 ![graf1](https://github.com/AmenDhouibi/Netflix-CICD/blob/main/Grafana_2.png)
 ![graf2](https://github.com/AmenDhouibi/Netflix-CICD/blob/main/Grafana_1.png)
 
+## NEtflix-Clone-App Running:
+![netflix](https://github.com/AmenDhouibi/Netflix-CICD/blob/main/Netflix%20App.png)
 
 ### Objectives:
 
@@ -107,18 +112,6 @@ Reports (`trivyfs.txt`, `trivyimage.txt`) are attached in Jenkins build email.
 
 
 
-### Netflix Clone Web App
-
-![Netflix App](screenshots/netflix-app.png)
-
-### Grafana - Jenkins Dashboard
-
-![Grafana Jenkins](screenshots/grafana-dashboard-jenkins.png)
-
-### Grafana - AKS Cluster
-
-![Grafana Cluster](screenshots/grafana-dashboard-cluster.png)
-
 ---
 
 ## 🛠️ Tech Stack
@@ -141,5 +134,4 @@ Reports (`trivyfs.txt`, `trivyimage.txt`) are attached in Jenkins build email.
 
 **Amen Dhouibi**  
 📧 amen_dhouibi@yahoo.com  
-🐙 GitHub: [Aj7Ay](https://github.com/Aj7Ay)
 
