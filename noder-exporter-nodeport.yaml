@@ -1,0 +1,17 @@
+# node-exporter-nodeport.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-exporter
+  namespace: kube-system
+  labels:
+    app: node-exporter
+spec:
+  type: NodePort
+  selector:
+    app: node-exporter
+  ports:
+    - name: metrics
+      port: 9100
+      targetPort: 9100
+      nodePort: 30100  # ou retire cette ligne pour un port auto

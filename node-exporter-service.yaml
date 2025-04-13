@@ -1,0 +1,16 @@
+# node-exporter-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-exporter
+  namespace: kube-system
+  labels:
+    app: node-exporter
+spec:
+  selector:
+    app: node-exporter
+  ports:
+    - name: metrics
+      port: 19100
+      targetPort: 9100
+  clusterIP: None  # headless service so Prometheus can scrape pods directly
